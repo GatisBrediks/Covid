@@ -1,6 +1,6 @@
 <?php
 
-$data = json_decode(file_get_contents("https://data.gov.lv/dati/lv/api/3/action/datastore_search?q=jones&resource_id=d499d2f0-b1ea-4ba2-9600-2c701b03bd4a"));
+$data = json_decode(file_get_contents("https://data.gov.lv/dati/lv/api/3/action/datastore_search?&resource_id=d499d2f0-b1ea-4ba2-9600-2c701b03bd4a"));
 
 $table = [];
 foreach ($data as $a => $item) {
@@ -41,7 +41,7 @@ foreach ($data as $a => $item) {
                 ?>
             </td>
             <td>
-                <?php echo $record->ApstiprinataCovid19InfekcijaSkaits;
+                <?php echo $record->ApstiprinataCOVID19InfekcijaSkaits;
                 ?>
             </td>
             <td>
