@@ -1,17 +1,23 @@
 <?php
 
-$data = json_decode(file_get_contents("https://data.gov.lv/dati/lv/api/3/action/datastore_search?&resource_id=d499d2f0-b1ea-4ba2-9600-2c701b03bd4a"));
+$search = $_GET['search'] ?? '';
+$data = json_decode(file_get_contents("https://data.gov.lv/dati/lv/api/3/action/datastore_search?q={$search}&resource_id=d499d2f0-b1ea-4ba2-9600-2c701b03bd4a"));
 
 $table = [];
 foreach ($data as $a => $item) {
     $table[$a] = $item;
 }
-
 ?>
 
 <table border="dotted">
 
     <h1>Covid statistika</h1>
+
+    <form method="get" action="/">
+        <input type="date" name="from" />
+        <input type="date" name="till" />
+        <button> Atlasīt </button>
+    </form>
 
     <thead>
     <th>
